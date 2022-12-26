@@ -1,24 +1,59 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+|Column             |Type   |Options                |
+|-------------------|-------|-----------------------|
+|nikuname           |string |null: false            |
+|encrypted_passward |string |null: false            |
+|birthday           |integer|null: false            |
+|email              |string |null: false            |
+|family name        |string |null: false            |
+|first name name    |string |null: false            |
 
-* Ruby version
+### Association
+has_many :items
+has_many :records
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+## itemsテーブル
 
-* Database initialization
+|Column             |Type       |Options                       |
+|-------------------|-----------|------------------------------|
+|title              |string     |null: false                   |
+|price              |integer    |null: false                   |
+|cach_copy          |txet       |null: false                   |
+|email              |string     |null: false                   |
+|user               |references |null: false foreign_key: true |
 
-* How to run the test suite
+### Association
+belongs_to :users
+has_one :records
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## recordsテーブル
 
-* ...
+|Column             |Type       |Options                       |
+|-------------------|-----------|------------------------------|
+|user               |references |null: false foreign_key: true |
+|items              |references |null: false foreign_key: true |
+
+
+### association
+belongs_to :users
+belongs_to :items
+has_one :addresses
+
+## addressesテーブル
+
+|Column             |Type       |Options                       |
+|-------------------|-----------|------------------------------|
+|postal_code        |integer    |null: false                   |
+|prefectures        |integer    |null: false                   |
+|city               |string     |null: false                   |
+|address_line       |string     |null: false                   |
+|phone              |integer    |null: false                   |
+
+### Association
+belongs_to :records
