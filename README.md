@@ -5,7 +5,7 @@
 |Column             |Type   |Options                   |
 |-------------------|-------|--------------------------|
 |nickname           |string |null: false               |
-|encrypted_passward |string |null: false               |
+|encrypted_password |string |null: false               |
 |birthday           |date   |null: false               |
 |email              |string |null: false, unique: true |
 |last_name          |string |null: false               |
@@ -31,8 +31,8 @@ has_many :records
 |status_id          |integer    |null: false                    |
 |delivery_charge_id |integer    |null: false                    |
 |area_id            |integer    |null: false                    |
-|delivery period_id |integer    |null: false                    |
-|price              |string     |null: false                    |
+|delivery_period_id |integer    |null: false                    |
+|price              |integer    |null: false                    |
 
 
 ### Association
